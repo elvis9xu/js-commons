@@ -85,6 +85,48 @@ function containsMatchProperties(array, properties) {
     return indexOfMatchProperties(array, properties) > -1;
 }
 
+/**
+ * 从数组集合(array)中删除对象(object)
+ *
+ * @param {Array} array 源数组
+ * @param {Object} object 源对象
+ * @return {Object} 被删除的象, 如果没有找到则返回null
+ */
+function remove(array, object) {
+    if (isEmpty(array)) return null;
+
+    const index = array.indexOf(object);
+    if (index === -1) return null;
+
+    return removeIndexAt(array, index);
+}
+
+/**
+ * 从数组集合(array)中删除与指定的属性和值(properties)相同的元素
+ *
+ * @param {Array} array 源数组
+ * @param {Object} properties 属性映射对象
+ * @return {Object} 被删除的象, 如果没有找到则返回null
+ */
+function removeMatchProperties(array, properties) {
+    const index = indexOfMatchProperties(array, properties);
+    if (index === -1) return null;
+    return removeIndexAt(array, index);
+}
+
+/**
+ * 从数组集合(array)中删除索引为(index)的对象
+ *
+ * @param {Array} array 源数组
+ * @param {Int} index 索引
+ * @return {Object} 被删除的象, 如果没有找到则返回null
+ */
+function removeIndexAt(array, index) {
+    if (isEmpty(array)) return null;
+    if (array.length <= index) return null;
+    return array.splice(index, 1)[0];
+}
+
 
 const api = {
     isEmpty,
@@ -93,6 +135,9 @@ const api = {
     indexOfMatchProperties,
     contains,
     containsMatchProperties,
+    remove,
+    removeMatchProperties,
+    removeIndexAt
 }
 
 module.exports = api;

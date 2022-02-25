@@ -1,6 +1,6 @@
 {
   "name": "elvis-js-commons",
-  "version": "1.0.0-SNAPSHOT.3",
+  "version": "1.0.0-SNAPSHOT.4",
   "description": "js commons",
   "main": "lib/index.js",
   "scripts": {

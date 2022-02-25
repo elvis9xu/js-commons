@@ -18,8 +18,31 @@ function isMatchProperties(object, properties) {
 }
 
 
+function isUndefined(object) {
+    return typeof(object) == "undefined";
+}
+
+function isNull(object) {
+    return object == null && typeof(object) != "undefined";
+}
+
+/**
+ * 判断对象object是否是null, undefined或者NaN
+ *
+ * @param {Object} object 源对象
+ * @return {Boolean} 是否null, undefined或者NaN
+ */
+function isNone(object) {
+    return object == null || isNaN(object);
+}
+
+
 const api = {
-    isMatchProperties
+    isMatchProperties,
+    isUndefined,
+    isNull,
+    isNaN,
+    isNone,
 }
 
 module.exports = api;
