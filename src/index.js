@@ -11,6 +11,7 @@ const allEnhancer = {
     enhance: function() {
         arrayEnhancer.enhance();
         dateEnhancer.enhance();
+		stringEnhancer.enhance();
     }
 }
 
